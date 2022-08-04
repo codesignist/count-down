@@ -1,6 +1,14 @@
+// const { app } = require("electron");
+// let w = remote.getCurrentWindow();
+
 const currentDate = new Date();
 currentDate.setHours(22, 0, 0, 0);
 const countDownDate = currentDate.getTime();
+const infoEl = document.getElementById("info");
+
+// infoEl.addEventListener("click", () => {
+//   w.close();
+// });
 
 function addZero(num) {
   num = Math.floor(num);
@@ -13,12 +21,11 @@ var x = setInterval(function () {
   var minutes = addZero((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = addZero((distance % (1000 * 60)) / 1000);
 
-  const infoEl = document.getElementById("info");
-
   infoEl.innerHTML = [hours, minutes, seconds].join(":");
 
   if (distance < 0) {
     clearInterval(x);
-    infoEl.innerHTML = "EXPIRED";
+    infoEl.innerHTML = "...";
+    // app.quit();
   }
 }, 1000);
