@@ -1,14 +1,7 @@
-// const { app } = require("electron");
-// let w = remote.getCurrentWindow();
-
 const currentDate = new Date();
 currentDate.setHours(22, 0, 0, 0);
 const countDownDate = currentDate.getTime();
 const infoEl = document.getElementById("info");
-
-// infoEl.addEventListener("click", () => {
-//   w.close();
-// });
 
 function addZero(num) {
   num = Math.floor(num);
@@ -25,7 +18,6 @@ var x = setInterval(function () {
 
   if (distance < 0) {
     clearInterval(x);
-    infoEl.innerHTML = "...";
-    // app.quit();
+    window.close();
   }
 }, 1000);
